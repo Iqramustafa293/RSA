@@ -1,3 +1,4 @@
+import hashlib
 from fpylll import *
 from hashlib import md5
 import numpy as np
@@ -59,7 +60,8 @@ matrix2 = [x1, y2, z2]
 print ("Current Matrix derived from totient using polar coordinates: ")
 print (matrix2)
 print('saad code')
-matrix3 = IntegerMatrix.from_matrix([[l,m,n],[x1, y2, z2]])
+
+matrix3 = IntegerMatrix.from_matrix([[l.item(),m.item(),n.item()],[x1, y2, z2]])
 print ("Matrix With Values: ")
 print (matrix3)
 LLL.reduction(matrix3)
@@ -91,7 +93,7 @@ decrypted_ms =  np.dot(decrypted_msg,Inverse)
 print ("decrypted_msg =" , decrypted_ms)
 #print hashlib.black2b(b"Nobody inspects the spammish repetition", digest_size=9).hexdigest()
 h = hashlib.md5()
-m.update(b"Nobody inspects")
-m.update(b" the spammish repetition")
-print (m.digest())
+h.update(b"Nobody inspects")
+h.update(b" the spammish repetition")
+print (h.digest())
 
